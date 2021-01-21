@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+       stage("first") {
+          steps {
+              // Executing single shell command
+              sh 'touch /tmp/random'
+              
+              // comment 
+              // Executing multiple shell command
+              sh '''
+                 echo "Starting console"
+                 echo "Run the script"
+              '''
+              // Script running 
+              sh 'bash /opt/start.sh'
+           }
+       }
+    }
+}
+            
