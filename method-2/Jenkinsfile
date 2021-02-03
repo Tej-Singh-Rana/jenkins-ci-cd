@@ -1,1 +1,19 @@
+pipeline {
+    agent { node { label 'ststor01' } }
+    stages {
+        stage('Deploy') {
+            steps {
+                sh '''
+                   cd /tmp/
+                   git clone http://git.stratos.xfusioncorp.com/sarah/web_app.git
+                   cp web_app/* /data/
+                   rm -rf /tmp/web_app
+                   '''
+            }
+        }
+    }
+}
+
+
+
 
