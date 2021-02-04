@@ -1,1 +1,19 @@
-
+pipeline {
+    agent { node { label 'storage' } }
+    stages {
+        stage('first') {
+            steps {
+                sh '''
+                  echo "Stage 1"
+                  '''
+            }
+        }
+        stage('second') {
+            steps {
+                sh '''
+                  echo "Stage 2"
+                  '''
+            }
+        }
+    }
+}
